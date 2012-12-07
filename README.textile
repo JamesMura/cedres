@@ -1,2 +1,3 @@
 **CEDRES
-learning
+
+![image](https://api.travis-ci.org/jamesmura/cedres.png)
