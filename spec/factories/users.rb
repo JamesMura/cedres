@@ -6,6 +6,8 @@ FactoryGirl.define do
     email 'example@example.com'
     password 'please'
     password_confirmation 'please'
+    registration_number '09/U/2699/PS'
+    academic_program 'Electrical Engineering'
     # required if the Devise Confirmable module is used
     # confirmed_at Time.now
   end
