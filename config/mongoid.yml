@@ -1,13 +1,11 @@
-<% if ENV['MONGOHQ_URL'] %>
+
 production:
   sessions:
-      default:
-        uri: <%= ENV['MONGOHQ_URL'] %>
-        options:
-          skip_version_check: true
-          safe: true
-<% end %>
-
+    default:
+      uri: <%= ENV['MONGOHQ_URL'] %>
+      options:
+        skip_version_check: true
+        safe: true
 development:
   # Configure available database sessions. (required)
   sessions:
@@ -19,7 +17,7 @@ development:
       # Provides the hosts the default session can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
-        - localhost:27017
+      - localhost:27017
       options:
         # Change whether the session persists in safe mode by default.
         # (default: false)
@@ -76,14 +74,14 @@ development:
 
     # Ensure all times are UTC in the app side. (default: false)
     # use_utc: false
-test:
-  sessions:
+    test:
+    sessions:
     default:
-      database: cedres_test
-      hosts:
-        - localhost:27017
-      options:
-        consistency: :strong
+    database: cedres_test
+    hosts:
+    - localhost:27017
+    options:
+    consistency: :strong
         # In the test environment we lower the retries and retry interval to
         # low amounts for fast failures.
         max_retries: 1
