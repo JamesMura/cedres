@@ -10,8 +10,10 @@
  *
  *= require_self
  *= require_tree .
-*/
-.brand {
+ */
+
+
+ .brand {
   float: left;
   padding-right: 8px;
 }
@@ -35,9 +37,10 @@ ul.nav li {
   background-color: #FCC;
   border: solid 1px #C66;
 }
-.social-buttons {
-margin-left: 0;
-margin-bottom: 0;
-padding-left: 0;
-list-style: none;
+.social-buttons
+{
+  margin-left: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
 }

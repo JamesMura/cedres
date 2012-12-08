@@ -6,7 +6,7 @@ group :assets do
 	gem 'uglifier', '>= 1.0.3'
 	gem "therubyracer"
   	gem "less-rails"
-  	gem "twitter-bootstrap-rails"
+  	gem "twitter-bootstrap-rails" , :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 end
 gem 'jquery-rails'
 gem "mongoid", ">= 3.0.11"
@@ -20,3 +20,6 @@ gem "capybara", ">= 1.1.3", :group => :test
 gem "factory_girl_rails", ">= 4.1.0", :group => [:development, :test]
 gem "devise", ">= 2.1.2"
 gem "quiet_assets", ">= 1.0.1", :group => :development
+group :libv8 do
+  gem 'libv8', "~> 3.11.8"
+end
