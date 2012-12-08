@@ -3,11 +3,11 @@
 FactoryGirl.define do
   factory :user do
     name 'Test User'
-    email 'example@example.com'
+    email 'example@tech.mak.ac.ug'
     password 'please'
     password_confirmation 'please'
     registration_number '09/U/2699/PS'
-    academic_program 'Electrical Engineering'
+    association :academic_program, factory: :academic_program
     # required if the Devise Confirmable module is used
     # confirmed_at Time.now
   end

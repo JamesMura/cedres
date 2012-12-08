@@ -4,7 +4,11 @@
   <%= devise_error_messages! %>
 <p><%= f.label :name %><br />
 <%= f.text_field :name %></p>
+<div><%= f.label :registration_number %><br />
+  <%= f.text_field :registration_number %></div>
 
+  <div><%= f.label :academic_program %><br />
+  <%= f.text_field :academic_program %></div>
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>
 

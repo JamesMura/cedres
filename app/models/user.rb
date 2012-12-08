@@ -14,7 +14,7 @@ class User
 
   validates_presence_of :email
   validates_presence_of :encrypted_password
-  
+
   ## Recoverable
   field :reset_password_token,   :type => String
   field :reset_password_sent_at, :type => Time
@@ -46,10 +46,16 @@ class User
   index({ email: 1 }, { unique: true, background: true })
   field :name, :type => String
   field :registration_number, :type => String
-  field :academic_program, :type => String
+  belongs_to :academic_program
   validates_presence_of :name
   validates_presence_of :registration_number
   validates_presence_of :academic_program
   validates_uniqueness_of :registration_number
   attr_accessible :name,:academic_program,:registration_number, :email, :password, :password_confirmation, :remember_me, :created_at, :updated_at
+
+  validates_each :email do |record, attr, value|
+       record.errors.add(attr, 'You must use an mak.ac.ug email address') unless value =~ /mak.ac.ug$/
+   end
+
+
 end
