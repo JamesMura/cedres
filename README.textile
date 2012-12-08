@@ -1,3 +1,0 @@
-**CEDRES
-
-![image](https://api.travis-ci.org/jamesmura/cedres.png)
