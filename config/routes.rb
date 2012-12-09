@@ -1,4 +1,6 @@
 Cedres::Application.routes.draw do
+  devise_for :admins
+
   authenticated :user do
     root :to => 'home#index'
   end

@@ -6,34 +6,34 @@ class User
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   ## Database authenticatable
-  field :email,              :type => String, :default => ""
+  field :email, :type => String, :default => ""
   field :encrypted_password, :type => String, :default => ""
 
   validates_presence_of :email
   validates_presence_of :encrypted_password
 
   ## Recoverable
-  field :reset_password_token,   :type => String
+  field :reset_password_token, :type => String
   field :reset_password_sent_at, :type => Time
 
   ## Rememberable
   field :remember_created_at, :type => Time
 
   ## Trackable
-  field :sign_in_count,      :type => Integer, :default => 0
+  field :sign_in_count, :type => Integer, :default => 0
   field :current_sign_in_at, :type => Time
-  field :last_sign_in_at,    :type => Time
+  field :last_sign_in_at, :type => Time
   field :current_sign_in_ip, :type => String
-  field :last_sign_in_ip,    :type => String
+  field :last_sign_in_ip, :type => String
 
   ## Confirmable
-  # field :confirmation_token,   :type => String
-  # field :confirmed_at,         :type => Time
-  # field :confirmation_sent_at, :type => Time
-  # field :unconfirmed_email,    :type => String # Only if using reconfirmable
+  field :confirmation_token, :type => String
+  field :confirmed_at, :type => Time
+  field :confirmation_sent_at, :type => Time
+  field :unconfirmed_email, :type => String # Only if using reconfirmable
 
   ## Lockable
   # field :failed_attempts, :type => Integer, :default => 0 # Only if lock strategy is :failed_attempts
@@ -43,7 +43,7 @@ class User
   ## Token authenticatable
   # field :authentication_token, :type => String
   # run 'rake db:mongoid:create_indexes' to create indexes
-  index({ email: 1 }, { unique: true, background: true })
+  index({email: 1}, {unique: true, background: true})
   field :name, :type => String
   field :registration_number, :type => String
   belongs_to :academic_program
@@ -51,11 +51,11 @@ class User
   validates_presence_of :registration_number
   validates_presence_of :academic_program
   validates_uniqueness_of :registration_number
-  attr_accessible :name,:academic_program,:registration_number, :email, :password, :password_confirmation, :remember_me, :created_at, :updated_at
+  attr_accessible :name, :academic_program, :registration_number, :email, :password, :password_confirmation, :remember_me, :created_at, :updated_at
 
   validates_each :email do |record, attr, value|
-       record.errors.add(attr, 'You must use an mak.ac.ug email address') unless value =~ /mak.ac.ug$/
-   end
+    record.errors.add(attr, 'You must use an mak.ac.ug email address') unless value =~ /mak.ac.ug$/
+  end
 
 
 end

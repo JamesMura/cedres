@@ -2,15 +2,16 @@ source 'https://rubygems.org'
 ruby '1.9.3'
 gem 'rails', '3.2.9'
 group :assets do
-	gem 'sass-rails',   '~> 3.2.3'
-	gem 'coffee-rails', '~> 3.2.1'
-	gem 'uglifier', '>= 1.0.3'
-	gem "therubyracer"
-  	gem "less-rails"
-  	gem "twitter-bootstrap-rails" , :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+  gem 'sass-rails', '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'uglifier', '>= 1.0.3'
+  gem "therubyracer"
+  gem "less-rails"
+  gem "twitter-bootstrap-rails", :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 end
 gem 'jquery-rails'
 gem "mongoid", ">= 3.0.11"
+gem "cancan"
 gem "rspec-rails", ">= 2.11.4", :group => [:development, :test]
 gem "database_cleaner", ">= 0.9.1", :group => :test
 gem "mongoid-rspec", ">= 1.4.6", :group => :test

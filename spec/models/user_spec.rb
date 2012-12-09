@@ -2,16 +2,16 @@ require 'spec_helper'
 
 describe User do
   before(:each) do
-    @college = College.new(:name=>"MUK")
-    @department = Department.new({:name=>"DEPT",:college=>@college})
-    @program = AcademicProgram.new({:name=>"Elec",:department=>@department})
+    @college = College.new(:name => "MUK")
+    @department = Department.new({:name => "DEPT", :college => @college})
+    @program = AcademicProgram.new({:name => "Elec", :department => @department})
     @attr = {
-      :name => "Example User",
-      :email => "user@tech.mak.ac.ug",
-      :password => "foobar",
-      :password_confirmation => "foobar",
-      :registration_number =>"09",
-      :academic_program => @program
+        :name => "Example User",
+        :email => "user@tech.mak.ac.ug",
+        :password => "foobar",
+        :password_confirmation => "foobar",
+        :registration_number => "09",
+        :academic_program => @program
     }
   end
   it { should validate_presence_of(:email) }
@@ -22,28 +22,28 @@ describe User do
   it { should validate_uniqueness_of(:registration_number) }
   it { should belong_to(:academic_program).of_type(AcademicProgram) }
   it "should create a object when valid attributes are passed" do
-    lambda{
-        user =User.create!(@attr)
-      }.should change(User,:count).by(1)
+    lambda {
+      user =User.create!(@attr)
+    }.should change(User, :count).by(1)
   end
 
-  it  "should require email" do
+  it "should require email" do
     user = User.new(@attr.merge(:email => ""))
     user.should_not be_valid
 
   end
-  it  "should be require a name" do
+  it "should be require a name" do
     user = User.new(@attr.merge(:name => ""))
     user.should_not be_valid
 
   end
 
-  it  "should be require a registration_number" do
+  it "should be require a registration_number" do
     user = User.new(@attr.merge(:registration_number => ""))
     user.should_not be_valid
 
   end
-  it  "should be require a academic_program" do
+  it "should be require a academic_program" do
     user = User.new(@attr.merge(:academic_program => ""))
     user.should_not be_valid
 
@@ -68,7 +68,7 @@ describe User do
     user_with_duplicate_email = User.new(@attr)
     user_with_duplicate_email.should_not be_valid
   end
-it "should reject duplicate registration_numbers" do
+  it "should reject duplicate registration_numbers" do
     User.create!(@attr)
     user = User.new(@attr)
     user.should_not be_valid
@@ -92,12 +92,12 @@ it "should reject duplicate registration_numbers" do
 
     it "should require a password" do
       User.new(@attr.merge(:password => "", :password_confirmation => "")).
-        should_not be_valid
+          should_not be_valid
     end
 
     it "should require a matching password confirmation" do
       User.new(@attr.merge(:password_confirmation => "invalid")).
-        should_not be_valid
+          should_not be_valid
     end
 
     it "should reject short passwords" do
